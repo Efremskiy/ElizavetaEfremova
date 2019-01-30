@@ -1,0 +1,39 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
+
+public class IndexPage {
+    @FindBy(css = "[id='user-icon']")
+    private List<WebElement> loginIcon;
+
+    @FindBy(css = "[id='name']")
+    private WebElement userField;
+
+    @FindBy(css = "[id='password']")
+    private WebElement passwordField;
+
+    @FindBy(css = "[id='login-button']")
+    private WebElement submitButton;
+
+    private WebDriver driver;
+
+    public IndexPage(WebDriver driver){
+        this.driver = driver;
+    }
+
+    public void login(String name, String password) {
+        loginIcon.get(6).click();
+        userField.sendKeys(name);
+        passwordField.sendKeys(password);
+        submitButton.click();
+    }
+
+    public void open() {
+        driver.get("https://epam.github.io/JDI/index.html");
+    }
+}
