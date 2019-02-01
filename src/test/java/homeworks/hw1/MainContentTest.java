@@ -15,18 +15,12 @@ import static org.testng.Assert.*;
 
 public class MainContentTest {
 
-    private WebDriver driver;
-
-    @BeforeMethod
-    public void beforeMethod() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
-    }
-
     @Test
     public void mainContentTest() {
         //1 Open test site by URL
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //2 Assert Browser title
@@ -70,15 +64,15 @@ public class MainContentTest {
         }
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
-        List<WebElement> Texts = new ArrayList<>(driver.findElements(By.className("benefit-txt")));
-        assertEquals(Texts.size(),4);
-        assertEquals(Texts.get(0).getText(), "To include good practices\n" +
+        List<WebElement> texts = new ArrayList<>(driver.findElements(By.className("benefit-txt")));
+        assertEquals(texts.size(),4);
+        assertEquals(texts.get(0).getText(), "To include good practices\n" +
                 "and ideas from successful\n" +
                 "EPAM project" );
-        assertEquals(Texts.get(1).getText(), "To be flexible and\n" +
+        assertEquals(texts.get(1).getText(), "To be flexible and\n" +
                 "customizable");
-        assertEquals(Texts.get(2).getText(),"To be multiplatform");
-        assertEquals(Texts.get(3).getText(), "Already have good base\n" +
+        assertEquals(texts.get(2).getText(),"To be multiplatform");
+        assertEquals(texts.get(3).getText(), "Already have good base\n" +
                 "(about 20 internal and\n" +
                 "some external projects),\n" +
                 "wish to get more…");
