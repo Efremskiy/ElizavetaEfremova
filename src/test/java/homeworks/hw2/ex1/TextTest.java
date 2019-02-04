@@ -17,7 +17,7 @@ public class TextTest {
 
     @DataProvider(parallel = true)
     private Object[][] textDataProvider() {
-        return new Object[][] {
+        return new Object[][]{
                 {0, "To include good practices\n" +
                         "and ideas from successful\n" +
                         "EPAM project"},
@@ -39,9 +39,9 @@ public class TextTest {
         driver.navigate().to("https://epam.github.io/JDI/index.html");
         // TODO I don't get it. What is the reason of new ArrayList<>(...) here ?
         // TODO Take a look on WebDriver::findElements return type
-        List<WebElement> texts = new ArrayList<>(driver.findElements(By.className("benefit-txt")));
+        List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
         // TODO Code convention, reformat your code via IDEA
-        assertEquals(texts.get(i).getText(),s);
+        assertEquals(texts.get(i).getText(), s);
         driver.close();
     }
 }

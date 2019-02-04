@@ -8,11 +8,8 @@
             </run>
         </groups>
         <!--TODO this will be better with package-->
-        <classes>
-            <class name="homeworks.hw2.ex2.FirstTest" />
-            <class name="homeworks.hw2.ex2.SecondTest" />
-            <class name="homeworks.hw2.ex2.ThirdTest" />
-            <class name="homeworks.hw2.ex2.FourthTest" />
-        </classes>
+        <packages>
+            <package name="homeworks.hw2.ex2"/>
+        </packages>
     </test>
 </suite>
