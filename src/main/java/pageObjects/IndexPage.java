@@ -1,15 +1,13 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 
 public class IndexPage {
     @FindBy(css = "[id='user-icon']")
-    private List<WebElement> loginIcon;
+    private WebElement loginIcon;
 
     @FindBy(css = "[id='name']")
     private WebElement userField;
@@ -27,7 +25,7 @@ public class IndexPage {
     }
 
     public void login(String name, String password) {
-        loginIcon.get(6).click();
+        loginIcon.click();
         userField.sendKeys(name);
         passwordField.sendKeys(password);
         submitButton.click();

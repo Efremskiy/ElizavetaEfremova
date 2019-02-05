@@ -24,7 +24,7 @@ public class SelenideSimpleTestWithPO extends SelenideBase {
 
     @AfterMethod
     public void closeTest(){
-       close();
+        close();
     }
 
     @Test
