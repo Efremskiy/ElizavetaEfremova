@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
 
 public class SimpleTestParallel {
 
-    //если бы chromedriver.exe лежал в другой папке:
+    //In case chromedriver.exe is in different directory:
     /*@BeforeClass
     public void beforeClass() {
         setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
