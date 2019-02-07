@@ -7,7 +7,6 @@
                 <include name="Regression" />
             </run>
         </groups>
-        <!--TODO this will be better with package-->
         <packages>
             <package name="homeworks.hw2.ex2"/>
         </packages>

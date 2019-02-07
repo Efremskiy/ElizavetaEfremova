@@ -37,10 +37,7 @@ public class TextTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
         driver.navigate().to("https://epam.github.io/JDI/index.html");
-        // TODO I don't get it. What is the reason of new ArrayList<>(...) here ?
-        // TODO Take a look on WebDriver::findElements return type
         List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
-        // TODO Code convention, reformat your code via IDEA
         assertEquals(texts.get(i).getText(), s);
         driver.close();
     }
