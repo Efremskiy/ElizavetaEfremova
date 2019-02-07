@@ -48,9 +48,7 @@ public class MainContentTest extends SeleniumBase {
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
         indexPage.areHeaderItemsDisplayed();
         // TODO Take a look on enum's default methods, you can pass all enum's data at once
-        indexPage.headerTextsCheck(new HeaderItemsData[]{HeaderItemsData.HEADER_FIRST_ITEM,
-                HeaderItemsData.HEADER_SECOND_ITEM, HeaderItemsData.HEADER_THIRD_ITEM,
-                HeaderItemsData.HEADER_FOURTH_ITEM});
+        indexPage.headerTextsCheck(HeaderItemsData.values());
 
 
         //7 Assert that there are 4 images on the Index Page and they are displayed
@@ -58,8 +56,7 @@ public class MainContentTest extends SeleniumBase {
 
         // TODO Take a look on enum's default methods, you can pass all enum's data at once
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
-        indexPage.iconTextsCheck(new IconsData[]{IconsData.FIRST_ICON_TEXT, IconsData.SECOND_ICON_TEXT,
-                IconsData.THIRD_ICON_TEXT, IconsData.FOURTH_ICON_TEXT});
+        indexPage.iconTextsCheck(IconsData.values());
 
         //9 Assert a text of the main headers
         indexPage.firstMainHeaderCheck(PageMainData.FIRST_MAIN_HEADER_TEXT);

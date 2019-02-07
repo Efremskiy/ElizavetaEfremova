@@ -31,11 +31,11 @@ public class IndexPage {
     private WebElement username;
 
     // TODO This locator can be improved
-    @FindBy(css = "[class='uui-navigation nav navbar-nav m-l8'] > li")
+    @FindBy(css = "nav > ul:nth-of-type(1) > li")
     private List<WebElement> headerItems;
 
     // TODO This locator can be improved
-    @FindBy(css = "[class='uui-navigation nav navbar-nav m-l8'] > li > a")
+    @FindBy(css = "nav > ul:nth-of-type(1) > li > a")
     private List<WebElement> headerItemsTexts;
 
     @FindBy(css = ".benefit-icon")
@@ -57,7 +57,7 @@ public class IndexPage {
     private WebElement subHeader;
 
     // TODO This locator can be improved
-    @FindBy(css = "[class='mCustomScrollBox mCS-light mCSB_vertical mCSB_inside']")
+    @FindBy(css = ".sidebar-menu")
     private WebElement leftSection;
 
     @FindBy(css = ".footer-bg")
