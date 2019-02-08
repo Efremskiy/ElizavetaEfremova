@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-public class SelenideServicePage {
+public class SelenideIndexPage {
     @FindBy(css = "#user-icon")
     private SelenideElement loginIcon;
 
@@ -42,6 +42,9 @@ public class SelenideServicePage {
 
     @FindBy(css = ".dropdown-menu li:nth-of-type(7) a")
     private SelenideElement differentElementsLink;
+
+    @FindBy(css = ".dropdown-menu li:nth-of-type(2) a")
+    private SelenideElement datesLink;
 
     public void titleCheck(String title) {
         assertEquals(getWebDriver().getTitle(), title);
@@ -78,5 +81,10 @@ public class SelenideServicePage {
     public void openDifferentElementsPage() {
         headerServiceDropdown.click();
         differentElementsLink.click();
+    }
+
+    public void openDatesPage() {
+        headerServiceDropdown.click();
+        datesLink.click();
     }
 }

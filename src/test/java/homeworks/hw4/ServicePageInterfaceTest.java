@@ -13,14 +13,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ServicePageInterfaceTest extends SelenideBase {
 
-    private SelenideServicePage servicePage;
+    private SelenideIndexPage indexPage;
     private SelenideDifferentElementsPage differentElementsPage;
 
     @BeforeMethod
     public void beforeMethod() {
         //1 Open test site by URL
         open(PageMainData.URL.toString());
-        servicePage = page(SelenideServicePage.class);
+        indexPage = page(SelenideIndexPage.class);
         differentElementsPage = page(SelenideDifferentElementsPage.class);
     }
 
@@ -32,22 +32,22 @@ public class ServicePageInterfaceTest extends SelenideBase {
     @Test
     public void servicePageInterfaceTest() {
         //2 Assert Browser title
-        servicePage.titleCheck(PageMainData.PAGE_TITLE.toString());
+        indexPage.titleCheck(PageMainData.PAGE_TITLE.toString());
 
         //3 Perform login
-        servicePage.login(Users.PETER_C);
+        indexPage.login(Users.PETER_C);
 
         //4 Assert User name in the left-top side of screen that user is loggined
-        servicePage.isLogged(Users.PETER_C);
+        indexPage.isLogged(Users.PETER_C);
 
         //5 Click on "Service" subcategory in the header and check that drop down contains options
-        servicePage.headerDropdownCheck(ServiceDropdownElements.values());
+        indexPage.headerDropdownCheck(ServiceDropdownElements.values());
 
         //6 Click on Service subcategory in the left section and check that drop down contains options
-        servicePage.leftDropdownCheck(ServiceDropdownElements.values());
+        indexPage.leftDropdownCheck(ServiceDropdownElements.values());
 
         //7 Open through the header menu Service -> Different Elements Page
-        servicePage.openDifferentElementsPage();
+        indexPage.openDifferentElementsPage();
 
         //8 Check interface on Different elements page, it contains all needed elements
         differentElementsPage.mainInterfaceCheck();
@@ -59,7 +59,8 @@ public class ServicePageInterfaceTest extends SelenideBase {
         differentElementsPage.isLeftSectionDisplayed();
 
         //11 Select checkboxes
-        differentElementsPage.selectCheckboxesWaterWind();
+        differentElementsPage.selectCheckboxes(new SupportOptions[]
+                {SupportOptions.WATER, SupportOptions.WIND});
 
         //12 Assert that for each checkbox there is an individual log row and value is
         // corresponded to the status of checkbox. 
@@ -67,20 +68,21 @@ public class ServicePageInterfaceTest extends SelenideBase {
                 {SupportOptions.WATER, SupportOptions.WIND});
 
         //13 Select radio
-        differentElementsPage.selectRadioSelen();
+        differentElementsPage.selectRadios(new SupportOptions[] {SupportOptions.SELEN});
 
         //14 Assert that for radiobutton there is a log row and value is
         // corresponded to the status of radiobutton. 
         differentElementsPage.areRadioLogsCorrect(new SupportOptions[] {SupportOptions.SELEN});
 
         //15 Select in dropdown
-        differentElementsPage.selectDropdownYellow();
+        differentElementsPage.selectDropdown(SupportOptions.YELLOW);
 
         //16 Assert that for dropdown there is a log row and value is corresponded to the selected value.
         differentElementsPage.areDropdownLogsCorrect(new SupportOptions[] {SupportOptions.YELLOW});
 
         //17 Unselect and assert checkboxes
-        differentElementsPage.selectCheckboxesWaterWind();
+        differentElementsPage.selectCheckboxes(new SupportOptions[]
+                {SupportOptions.WATER, SupportOptions.WIND});
 
         //18 Assert that for each checkbox there is an individual log row and value is
         // corresponded to the status of checkbox. 
