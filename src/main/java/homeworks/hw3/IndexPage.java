@@ -44,10 +44,10 @@ public class IndexPage {
     @FindBy(css = ".benefit-txt")
     private List<WebElement> iconTexts;
 
-    @FindBy(css = "[class='main-title text-center']")
+    @FindBy(css = "[.main-title.text-center")
     private WebElement firstMainHeader;
 
-    @FindBy(css = "[class='main-txt text-center']")
+    @FindBy(css = "[.main-txt.text-center")
     private WebElement secondMainHeader;
 
     @FindBy(css = "#iframe")
