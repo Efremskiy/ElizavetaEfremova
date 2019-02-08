@@ -49,12 +49,16 @@ public class SelenideDifferentElementsPage {
     }
 
     public void selectCheckboxes(SupportOptions[] options) {
+        // TODO Take a look on ElementsCollection::find method
         for (SupportOptions option : options) {
             checkboxes.findBy(text(option.toString())).$("input").click();
         }
     }
 
     public void areCheckboxLogsCorrect(SupportOptions[] options) {
+        // TODO This is not the best approach.
+        // TODO You have to verify actual log rows with expected,
+        // TODO verification should not depends on current element status.
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
             assertTrue(logs.get(options.length - 1 - i).text().toUpperCase().contains(options[i].toString()));
@@ -67,24 +71,29 @@ public class SelenideDifferentElementsPage {
     }
 
     public void selectRadios(SupportOptions[] options) {
+        // TODO Take a look on ElementsCollection::find method
         for (SupportOptions option : options) {
             radios.findBy(text(option.toString())).$("input").click();
         }
     }
 
     public void areRadioLogsCorrect(SupportOptions[] options) {
+        // TODO You can easily verify that the log contains expected string. This will be quite enough
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
             assertTrue(logs.get(options.length - 1 - i).text().toUpperCase().contains(options[i].toString()));
         }
     }
+
     public void selectDropdown(SupportOptions option) {
+        // TODO You have to create 'Utils' class in order to do this transformation
         String optionCaseSensitive = option.toString().charAt(0) + option.toString().substring(1).toLowerCase();
         dropdowns.get(0).click();
         dropdowns.get(0).selectOption(optionCaseSensitive);
     }
 
     public void areDropdownLogsCorrect(SupportOptions[] options) {
+        // TODO You can easily verify that the log contains expected string. This will be quite enough
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
             assertTrue(logs.get(options.length - 1 - i).text().toUpperCase().contains(options[i].toString()));

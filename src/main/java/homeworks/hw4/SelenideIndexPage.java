@@ -28,18 +28,25 @@ public class SelenideIndexPage {
     @FindBy(css = "#user-name")
     private SelenideElement username;
 
+    // TODO This locator can be improved
     @FindBy(css = "nav > ul:nth-of-type(1) > li > a[data-toggle='dropdown']")
     private  SelenideElement headerServiceDropdown;
 
     @FindBy(css = ".dropdown-menu li a")
+    // TODO Use ElementsCollection
     private List<SelenideElement> headerDropdownElements;
 
+    // TODO This locator can be improved
     @FindBy(css = ".sidebar-menu > li > a > div")
     private SelenideElement leftServiceDropdown;
 
+    // TODO This locator can be improved
+    // TODO Use ElementsCollection
     @FindBy(css = ".sidebar-menu > li > ul > li > a * span")
     private List<SelenideElement> leftDropdownElements;
 
+    // TODO It is not make sense to create one single element for each menu item,
+    // TODO use ElementsCollection
     @FindBy(css = ".dropdown-menu li:nth-of-type(7) a")
     private SelenideElement differentElementsLink;
 

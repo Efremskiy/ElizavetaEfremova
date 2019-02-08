@@ -12,9 +12,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class SelenideDatesPage {
+    // TODO This locator should be improved
     @FindBy(css = "[class^='ui-slider-handle']:nth-of-type(1)")
     private SelenideElement fromSlider;
 
+    // TODO This locator should be improved
     @FindBy(css = "[class^='ui-slider-handle']:nth-of-type(2)")
     private SelenideElement toSlider;
 
@@ -23,6 +25,9 @@ public class SelenideDatesPage {
 
     @FindBy(css = ".panel-body-list.logs > li")
     private ElementsCollection logs;
+
+    // TODO You have slight similar 2 methods - moveFromSliderTo and moveToSliderTo
+    // TODO It will be better to merge it in single one with two parameter (be careful about code duplication)
 
     public void moveFromSliderTo(int position) {
         Actions builder = new Actions(getWebDriver());
