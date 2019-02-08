@@ -1,5 +1,7 @@
 package homeworks.hw4.enums;
 
+// TODO Oh my, what is the reason of this naming ???
+// TODO This items should be named with relation to it purpose...
 public enum ServiceDropdownElements {
     FIRST_ELEMENT("Support"),
     SECOND_ELEMENT("Dates"),

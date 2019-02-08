@@ -59,6 +59,7 @@ public class ServicePageInterfaceTest extends SelenideBase {
         differentElementsPage.isLeftSectionDisplayed();
 
         //11 Select checkboxes
+        // TODO You can use method with different arguments count, for example "void method(Integer values...) {...}"
         differentElementsPage.selectCheckboxes(new SupportOptions[]
                 {SupportOptions.WATER, SupportOptions.WIND});
 

@@ -30,6 +30,8 @@ public class IndexPage {
     @FindBy(css = "#user-name")
     private WebElement username;
 
+    // TODO Pay attention, it is not really necessary to create one single element for each menu items,
+    // TODO will be better with collection
     // TODO This locator can be improved
     @FindBy(css = "nav > ul:nth-of-type(1) > li")
     private List<WebElement> headerItems;
@@ -56,7 +58,6 @@ public class IndexPage {
     @FindBy(css = ".text-center a")
     private WebElement subHeader;
 
-    // TODO This locator can be improved
     @FindBy(css = ".sidebar-menu")
     private WebElement leftSection;
 
