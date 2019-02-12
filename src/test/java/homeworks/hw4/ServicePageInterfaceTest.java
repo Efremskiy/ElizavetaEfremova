@@ -60,34 +60,31 @@ public class ServicePageInterfaceTest extends SelenideBase {
 
         //11 Select checkboxes
         // TODO You can use method with different arguments count, for example "void method(Integer values...) {...}"
-        differentElementsPage.selectCheckboxes(new SupportOptions[]
-                {SupportOptions.WATER, SupportOptions.WIND});
+        //fixed
+        differentElementsPage.selectCheckboxes(SupportOptions.WATER, SupportOptions.WIND);
 
         //12 Assert that for each checkbox there is an individual log row and value is
         // corresponded to the status of checkbox. 
-        differentElementsPage.areCheckboxLogsCorrect(new SupportOptions[]
-                {SupportOptions.WATER, SupportOptions.WIND});
+        differentElementsPage.areCheckboxLogsCorrect("true", SupportOptions.WATER, SupportOptions.WIND);
 
         //13 Select radio
-        differentElementsPage.selectRadios(new SupportOptions[] {SupportOptions.SELEN});
+        differentElementsPage.selectRadios(SupportOptions.SELEN);
 
         //14 Assert that for radiobutton there is a log row and value is
         // corresponded to the status of radiobutton. 
-        differentElementsPage.areRadioLogsCorrect(new SupportOptions[] {SupportOptions.SELEN});
+        differentElementsPage.areRadioLogsCorrect(SupportOptions.SELEN);
 
         //15 Select in dropdown
         differentElementsPage.selectDropdown(SupportOptions.YELLOW);
 
         //16 Assert that for dropdown there is a log row and value is corresponded to the selected value.
-        differentElementsPage.areDropdownLogsCorrect(new SupportOptions[] {SupportOptions.YELLOW});
+        differentElementsPage.areDropdownLogsCorrect(SupportOptions.YELLOW);
 
         //17 Unselect and assert checkboxes
-        differentElementsPage.selectCheckboxes(new SupportOptions[]
-                {SupportOptions.WATER, SupportOptions.WIND});
+        differentElementsPage.selectCheckboxes(SupportOptions.WATER, SupportOptions.WIND);
 
         //18 Assert that for each checkbox there is an individual log row and value is
         // corresponded to the status of checkbox. 
-        differentElementsPage.areCheckboxLogsCorrect(new SupportOptions[]
-                {SupportOptions.WATER, SupportOptions.WIND});
+        differentElementsPage.areCheckboxLogsCorrect("false", SupportOptions.WATER, SupportOptions.WIND);
     }
 }

@@ -42,31 +42,31 @@ public class DatesPageSlidersTest extends SelenideBase {
 
         //6 Using drag-and-drop set Range sliders. left sliders - the most left position,
         // right slider - the most rigth position
-        datesPage.moveFromSliderTo(0);
-        datesPage.moveToSliderTo(100);
+        datesPage.moveSliderTo(0, "left");
+        datesPage.moveSliderTo(100, "right");
 
         //7 Assert that for "From" and "To" sliders there are logs rows with corresponding values
         datesPage.areLogsCorrect(0, 100);
 
         //8 Using drag-and-drop set Range sliders. left sliders - the most left position,
         // right slider - the most left position.
-        datesPage.moveFromSliderTo(0);
-        datesPage.moveToSliderTo(0);
+        datesPage.moveSliderTo(0, "left");
+        datesPage.moveSliderTo(0, "right");
 
         //9 Assert that for "From" and "To" sliders there are logs rows with corresponding values
         datesPage.areLogsCorrect(0, 0);
 
         //10 Using drag-and-drop set Range sliders. left sliders - the most rigth position,
         // right slider - the most rigth position.
-        datesPage.moveFromSliderTo(100);
-        datesPage.moveToSliderTo(100);
+        datesPage.moveSliderTo(100, "left");
+        datesPage.moveSliderTo(100, "right");
 
         //11 Assert that for "From" and "To" sliders there are logs rows with corresponding values
         datesPage.areLogsCorrect(100, 100);
 
         //12 Using drag-and-drop set Range sliders.
-        datesPage.moveFromSliderTo(30);
-        datesPage.moveToSliderTo(70);
+        datesPage.moveSliderTo(30, "left");
+        datesPage.moveSliderTo(70, "right");
 
         //13 Assert that for "From" and "To" sliders there are logs rows with corresponding values
         datesPage.areLogsCorrect(30, 70);

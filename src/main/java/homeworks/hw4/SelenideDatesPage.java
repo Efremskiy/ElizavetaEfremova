@@ -13,12 +13,15 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class SelenideDatesPage {
     // TODO This locator should be improved
-    @FindBy(css = "[class^='ui-slider-handle']:nth-of-type(1)")
-    private SelenideElement fromSlider;
+    //@FindBy(css = "[class^='ui-slider-handle']:nth-of-type(1)")
+    //private SelenideElement fromSlider;
 
     // TODO This locator should be improved
-    @FindBy(css = "[class^='ui-slider-handle']:nth-of-type(2)")
-    private SelenideElement toSlider;
+    //@FindBy(css = "[class^='ui-slider-handle']:nth-of-type(2)")
+    //private SelenideElement toSlider;
+
+    @FindBy(css = ".ui-slider-handle")
+    private ElementsCollection sliders;
 
     @FindBy(css = "[class^='uui-slider']")
     private SelenideElement sliderBase;
@@ -28,17 +31,17 @@ public class SelenideDatesPage {
 
     // TODO You have slight similar 2 methods - moveFromSliderTo and moveToSliderTo
     // TODO It will be better to merge it in single one with two parameter (be careful about code duplication)
+    //fixed
 
-    public void moveFromSliderTo(int position) {
+    public void moveSliderTo(int position, String slider) {
+        int i = 0;
+        if(slider.equals("right")) {
+            i = 1;
+        }
         Actions builder = new Actions(getWebDriver());
-        int xOffset = (position - Integer.valueOf(fromSlider.$("span").text())) * sliderBase.getSize().width / 100 - 1;
-        builder.clickAndHold(fromSlider).moveByOffset(xOffset, 0).release().build().perform();
-    }
-
-    public void moveToSliderTo(int position) {
-        Actions builder = new Actions(getWebDriver());
-        int xOffset = (position - Integer.valueOf(toSlider.$("span").text())) * sliderBase.getSize().width / 100 - 1;
-        builder.clickAndHold(toSlider).moveByOffset(xOffset, 0).release().build().perform();
+        int xOffset = (position - Integer.valueOf(sliders.get(i).$("span").text())) *
+                sliderBase.getSize().width / 100 - 1;
+        builder.clickAndHold(sliders.get(i)).moveByOffset(xOffset, 0).release().build().perform();
     }
 
     public void areLogsCorrect(int fromPosition, int toPosition) {

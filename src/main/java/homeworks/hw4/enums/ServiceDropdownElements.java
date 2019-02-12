@@ -2,15 +2,16 @@ package homeworks.hw4.enums;
 
 // TODO Oh my, what is the reason of this naming ???
 // TODO This items should be named with relation to it purpose...
+//fixed
 public enum ServiceDropdownElements {
-    FIRST_ELEMENT("Support"),
-    SECOND_ELEMENT("Dates"),
-    THIRD_ELEMENT("Complex Table"),
-    FOURTH_ELEMENT("Simple Table"),
-    FIFTH_ELEMENT("User Table"),
-    SIXTH_ELEMENT("Table with pages"),
-    SEVENTH_ELEMENT("Different elements"),
-    EIGHTH_ELEMENT("Performance");
+    SUPPORT("Support"),
+    DATES("Dates"),
+    COMPLEX_TABLE("Complex Table"),
+    SIMPLE_TABLE("Simple Table"),
+    USER_TABLE("User Table"),
+    TABLE_WITH_PAGE("Table with pages"),
+    DIFFERENT_ELEMENTS("Different elements"),
+    PERFORMANCE("Performance");
 
     private String text;
 

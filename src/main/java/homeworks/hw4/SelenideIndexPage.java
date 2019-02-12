@@ -1,11 +1,10 @@
 package homeworks.hw4;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import homeworks.hw4.enums.ServiceDropdownElements;
 import homeworks.hw4.enums.Users;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -29,26 +28,29 @@ public class SelenideIndexPage {
     private SelenideElement username;
 
     // TODO This locator can be improved
-    @FindBy(css = "nav > ul:nth-of-type(1) > li > a[data-toggle='dropdown']")
-    private  SelenideElement headerServiceDropdown;
+    //fixed
+    @FindBy(css = ".m-l8 .dropdown")
+    private SelenideElement headerServiceDropdown;
 
     @FindBy(css = ".dropdown-menu li a")
     // TODO Use ElementsCollection
-    private List<SelenideElement> headerDropdownElements;
+    //fixed
+    private ElementsCollection headerDropdownElements;
 
     // TODO This locator can be improved
-    @FindBy(css = ".sidebar-menu > li > a > div")
+    //fixed
+    @FindBy(css = ".menu-title:nth-of-type(3)")
     private SelenideElement leftServiceDropdown;
 
     // TODO This locator can be improved
     // TODO Use ElementsCollection
-    @FindBy(css = ".sidebar-menu > li > ul > li > a * span")
-    private List<SelenideElement> leftDropdownElements;
+    //fixed
+    @FindBy(css = ".menu-title:nth-of-type(3) ul a")
+    private ElementsCollection leftDropdownElements;
 
     // TODO It is not make sense to create one single element for each menu item,
     // TODO use ElementsCollection
-    @FindBy(css = ".dropdown-menu li:nth-of-type(7) a")
-    private SelenideElement differentElementsLink;
+    //fixed (headerDropdownElements)
 
     @FindBy(css = ".dropdown-menu li:nth-of-type(2) a")
     private SelenideElement datesLink;
@@ -71,23 +73,21 @@ public class SelenideIndexPage {
 
     public void headerDropdownCheck(ServiceDropdownElements[] serviceDropdownElements) {
         headerServiceDropdown.click();
-        int i = 0;
-        for (SelenideElement element : headerDropdownElements) {
-            element.shouldBe(text(serviceDropdownElements[i++].toString()));
+        for (int i = 0; i < serviceDropdownElements.length; i++) {
+            headerDropdownElements.get(i).shouldHave(text(serviceDropdownElements[i].toString()));
         }
     }
 
     public void leftDropdownCheck(ServiceDropdownElements[] serviceDropdownElements) {
         leftServiceDropdown.click();
-        int i = 0;
-        for (SelenideElement element : leftDropdownElements) {
-            element.shouldBe(text(serviceDropdownElements[i++].toString()));
+        for (int i = 0; i < serviceDropdownElements.length; i++) {
+            leftDropdownElements.get(i).shouldHave(text(serviceDropdownElements[i].toString()));
         }
     }
 
     public void openDifferentElementsPage() {
         headerServiceDropdown.click();
-        differentElementsLink.click();
+        headerDropdownElements.get(6).click();
     }
 
     public void openDatesPage() {

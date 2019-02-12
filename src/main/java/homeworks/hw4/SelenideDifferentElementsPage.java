@@ -48,55 +48,56 @@ public class SelenideDifferentElementsPage {
         leftSection.shouldBe(visible);
     }
 
-    public void selectCheckboxes(SupportOptions[] options) {
+    public void selectCheckboxes(SupportOptions... options) {
         // TODO Take a look on ElementsCollection::find method
+        //fixed
         for (SupportOptions option : options) {
-            checkboxes.findBy(text(option.toString())).$("input").click();
+            checkboxes.find(text(option.toString())).click();
         }
     }
 
-    public void areCheckboxLogsCorrect(SupportOptions[] options) {
+    public void areCheckboxLogsCorrect(String condition, SupportOptions... options) {
         // TODO This is not the best approach.
         // TODO You have to verify actual log rows with expected,
         // TODO verification should not depends on current element status.
+        //fixed
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
-            assertTrue(logs.get(options.length - 1 - i).text().toUpperCase().contains(options[i].toString()));
-            if (logs.get(options.length - 1 - i).text().contains("true")) {
-                checkboxes.findBy(text(options[i].toString())).$("input").shouldBe(Condition.selected);
-            } else {
-                checkboxes.findBy(text(options[i].toString())).$("input").shouldNotBe(Condition.selected);
-            }
+            assertTrue(logs.get(options.length - 1 - i).getText()
+                    .contains(options[i].toString() + ": condition changed to " + condition));
         }
     }
 
-    public void selectRadios(SupportOptions[] options) {
+    public void selectRadios(SupportOptions... options) {
         // TODO Take a look on ElementsCollection::find method
+        //fixed
         for (SupportOptions option : options) {
-            radios.findBy(text(option.toString())).$("input").click();
+            radios.find(text(option.toString())).click();
         }
     }
 
-    public void areRadioLogsCorrect(SupportOptions[] options) {
+    public void areRadioLogsCorrect(SupportOptions... options) {
         // TODO You can easily verify that the log contains expected string. This will be quite enough
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
-            assertTrue(logs.get(options.length - 1 - i).text().toUpperCase().contains(options[i].toString()));
+            assertTrue(logs.get(options.length - 1 - i).getText()
+                    .contains("metal: value changed to " + options[i].toString()));
         }
     }
 
     public void selectDropdown(SupportOptions option) {
         // TODO You have to create 'Utils' class in order to do this transformation
-        String optionCaseSensitive = option.toString().charAt(0) + option.toString().substring(1).toLowerCase();
+        //fixed
         dropdowns.get(0).click();
-        dropdowns.get(0).selectOption(optionCaseSensitive);
+        dropdowns.get(0).selectOption(option.toString());
     }
 
-    public void areDropdownLogsCorrect(SupportOptions[] options) {
+    public void areDropdownLogsCorrect(SupportOptions... options) {
         // TODO You can easily verify that the log contains expected string. This will be quite enough
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
-            assertTrue(logs.get(options.length - 1 - i).text().toUpperCase().contains(options[i].toString()));
+            assertTrue(logs.get(options.length - 1 - i).getText()
+                    .contains("Colors: value changed to " + options[i].toString()));
         }
     }
 }
