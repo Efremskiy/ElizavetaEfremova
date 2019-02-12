@@ -30,15 +30,8 @@ public class IndexPage {
     @FindBy(css = "#user-name")
     private WebElement username;
 
-    // TODO Pay attention, it is not really necessary to create one single element for each menu items,
-    // TODO will be better with collection
-    // TODO This locator can be improved
-    @FindBy(css = "nav > ul:nth-of-type(1) > li")
-    private List<WebElement> headerItems;
-
-    // TODO This locator can be improved
-    @FindBy(css = "nav > ul:nth-of-type(1) > li > a")
-    private List<WebElement> headerItemsTexts;
+    @FindBy(css = ".m-l8")
+    private WebElement header;
 
     @FindBy(css = ".benefit-icon")
     private List<WebElement> icons;
@@ -46,10 +39,10 @@ public class IndexPage {
     @FindBy(css = ".benefit-txt")
     private List<WebElement> iconTexts;
 
-    @FindBy(css = "[.main-title.text-center")
+    @FindBy(css = ".main-title.text-center")
     private WebElement firstMainHeader;
 
-    @FindBy(css = "[.main-txt.text-center")
+    @FindBy(css = ".main-txt.text-center")
     private WebElement secondMainHeader;
 
     @FindBy(css = "#iframe")
@@ -89,16 +82,10 @@ public class IndexPage {
         assertEquals(username.getText(), user.fullName);
     }
 
-    public void areHeaderItemsDisplayed() {
-        for (WebElement headerItem : headerItems) {
-            assertTrue(headerItem.isDisplayed());
-        }
-    }
-
-    public void headerTextsCheck(HeaderItemsData[] headerItemsData) {
-        int i = 0;
-        for (WebElement headerItemText : headerItemsTexts) {
-            assertEquals(headerItemText.getText(), headerItemsData[i++].toString());
+    public void headerItemsCheck(HeaderItemsData[] headerItemsData) {
+        assertTrue(header.isDisplayed());
+        for (HeaderItemsData headerItemData : headerItemsData) {
+            assertTrue(header.getText().contains(headerItemData.toString()));
         }
     }
 

@@ -12,6 +12,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import static homeworks.hw3.enums.PageMainData.*;
+
 public class MainContentTest extends SeleniumBase {
     private WebDriver driver;
     private IndexPage indexPage;
@@ -31,10 +33,10 @@ public class MainContentTest extends SeleniumBase {
     @Test
     public void mainContentTest() {
         //1 Open test site by URL
-        indexPage.openURL(PageMainData.URL.toString());
+        indexPage.openURL(URL.toString());
 
         //2 Assert Browser title
-        indexPage.titleCheck(PageMainData.PAGE_TITLE.toString());
+        indexPage.titleCheck(PAGE_TITLE.toString());
 
         //3 Perform login
         indexPage.login(Users.PETER_C);
@@ -43,12 +45,10 @@ public class MainContentTest extends SeleniumBase {
         indexPage.isLogged(Users.PETER_C);
 
         //5 Assert Browser title
-        indexPage.titleCheck(PageMainData.PAGE_TITLE.toString());
+        indexPage.titleCheck(PAGE_TITLE.toString());
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
-        indexPage.areHeaderItemsDisplayed();
-        indexPage.headerTextsCheck(HeaderItemsData.values());
-
+        indexPage.headerItemsCheck(HeaderItemsData.values());
 
         //7 Assert that there are 4 images on the Index Page and they are displayed
         indexPage.areIconsDisplayed();
@@ -57,8 +57,8 @@ public class MainContentTest extends SeleniumBase {
         indexPage.iconTextsCheck(IconsData.values());
 
         //9 Assert a text of the main headers
-        indexPage.firstMainHeaderCheck(PageMainData.FIRST_MAIN_HEADER_TEXT);
-        indexPage.secondMainHeaderCheck(PageMainData.SECOND_MAIN_HEADER_TEXT);
+        indexPage.firstMainHeaderCheck(FIRST_MAIN_HEADER_TEXT);
+        indexPage.secondMainHeaderCheck(SECOND_MAIN_HEADER_TEXT);
 
         //10 Assert that there is the iframe in the center of page
         indexPage.isIframeDisplayed();
@@ -70,10 +70,10 @@ public class MainContentTest extends SeleniumBase {
         indexPage.switchToMainFrame();
 
         //13 Assert a text of the sub header
-        indexPage.subHeaderTextCheck(PageMainData.SUB_HEADER_TEXT);
+        indexPage.subHeaderTextCheck(SUB_HEADER_TEXT);
 
         //14 Assert that JDI GITHUB is a link and has a proper URL
-        indexPage.subHeaderLinkCheck(PageMainData.SUB_HEADER_LINK);
+        indexPage.subHeaderLinkCheck(SUB_HEADER_LINK);
 
         //15 Assert that there is Left Section
         indexPage.isLeftSectionDisplayed();
