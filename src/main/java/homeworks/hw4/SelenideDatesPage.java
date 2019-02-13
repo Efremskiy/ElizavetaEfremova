@@ -34,14 +34,19 @@ public class SelenideDatesPage {
     //fixed
 
     public void moveSliderTo(int position, String slider) {
-        int i = 0;
-        if(slider.equals("right")) {
-            i = 1;
+        if (slider.equals("left")) {
+            motion(position, 0);
+        } else {
+            motion(position, 1);
         }
+
+    }
+
+    private void motion(int position, int slider) {
         Actions builder = new Actions(getWebDriver());
-        int xOffset = (position - Integer.valueOf(sliders.get(i).$("span").text())) *
+        int xOffset = (position - Integer.valueOf(sliders.get(slider).$("span").text())) *
                 sliderBase.getSize().width / 100 - 1;
-        builder.clickAndHold(sliders.get(i)).moveByOffset(xOffset, 0).release().build().perform();
+        builder.clickAndHold(sliders.get(slider)).moveByOffset(xOffset, 0).release().build().perform();
     }
 
     public void areLogsCorrect(int fromPosition, int toPosition) {
