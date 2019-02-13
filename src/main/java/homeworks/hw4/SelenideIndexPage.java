@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static homeworks.hw4.enums.HeaderItemsData.SERVICE;
 import static org.testng.Assert.assertEquals;
 
 public class SelenideIndexPage {
@@ -27,33 +28,17 @@ public class SelenideIndexPage {
     @FindBy(css = "#user-name")
     private SelenideElement username;
 
-    // TODO This locator can be improved
-    //fixed
     @FindBy(css = ".m-l8 .dropdown")
     private SelenideElement headerServiceDropdown;
 
     @FindBy(css = ".dropdown-menu li a")
-    // TODO Use ElementsCollection
-    //fixed
     private ElementsCollection headerDropdownElements;
 
-    // TODO This locator can be improved
-    //fixed
-    @FindBy(css = ".menu-title:nth-of-type(3)")
-    private SelenideElement leftServiceDropdown;
+    @FindBy(css = ".sidebar-menu li")
+    private ElementsCollection leftSectionElements;
 
-    // TODO This locator can be improved
-    // TODO Use ElementsCollection
-    //fixed
     @FindBy(css = ".menu-title:nth-of-type(3) ul a")
     private ElementsCollection leftDropdownElements;
-
-    // TODO It is not make sense to create one single element for each menu item,
-    // TODO use ElementsCollection
-    //fixed (headerDropdownElements)
-
-    @FindBy(css = ".dropdown-menu li:nth-of-type(2) a")
-    private SelenideElement datesLink;
 
     public void titleCheck(String title) {
         assertEquals(getWebDriver().getTitle(), title);
@@ -79,19 +64,14 @@ public class SelenideIndexPage {
     }
 
     public void leftDropdownCheck(ServiceDropdownElements[] serviceDropdownElements) {
-        leftServiceDropdown.click();
+        leftSectionElements.findBy(text(SERVICE.toString())).click();
         for (int i = 0; i < serviceDropdownElements.length; i++) {
             leftDropdownElements.get(i).shouldHave(text(serviceDropdownElements[i].toString()));
         }
     }
 
-    public void openDifferentElementsPage() {
+    public void openServicePage(ServiceDropdownElements pageName) {
         headerServiceDropdown.click();
-        headerDropdownElements.get(6).click();
-    }
-
-    public void openDatesPage() {
-        headerServiceDropdown.click();
-        datesLink.click();
+        headerDropdownElements.findBy(text(pageName.toString())).click();
     }
 }

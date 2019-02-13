@@ -3,13 +3,13 @@ package homeworks.hw4;
 import base.SelenideBase;
 import homeworks.hw4.enums.PageMainData;
 import homeworks.hw4.enums.ServiceDropdownElements;
-import homeworks.hw4.enums.SupportOptions;
 import homeworks.hw4.enums.Users;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
+import static homeworks.hw4.enums.SupportOptions.*;
 
 public class ServicePageInterfaceTest extends SelenideBase {
 
@@ -47,7 +47,7 @@ public class ServicePageInterfaceTest extends SelenideBase {
         indexPage.leftDropdownCheck(ServiceDropdownElements.values());
 
         //7 Open through the header menu Service -> Different Elements Page
-        indexPage.openDifferentElementsPage();
+        indexPage.openServicePage(ServiceDropdownElements.DIFFERENT_ELEMENTS);
 
         //8 Check interface on Different elements page, it contains all needed elements
         differentElementsPage.mainInterfaceCheck();
@@ -59,32 +59,30 @@ public class ServicePageInterfaceTest extends SelenideBase {
         differentElementsPage.isLeftSectionDisplayed();
 
         //11 Select checkboxes
-        // TODO You can use method with different arguments count, for example "void method(Integer values...) {...}"
-        //fixed
-        differentElementsPage.selectCheckboxes(SupportOptions.WATER, SupportOptions.WIND);
+        differentElementsPage.selectElements(WATER, WIND);
 
         //12 Assert that for each checkbox there is an individual log row and value is
         // corresponded to the status of checkbox. 
-        differentElementsPage.areCheckboxLogsCorrect("true", SupportOptions.WATER, SupportOptions.WIND);
+        differentElementsPage.checkboxLogsCheck("true", WATER, WIND);
 
         //13 Select radio
-        differentElementsPage.selectRadios(SupportOptions.SELEN);
+        differentElementsPage.selectMetal(SELEN);
 
         //14 Assert that for radiobutton there is a log row and value is
         // corresponded to the status of radiobutton. 
-        differentElementsPage.areRadioLogsCorrect(SupportOptions.SELEN);
+        differentElementsPage.radioLogsCheck(SELEN);
 
         //15 Select in dropdown
-        differentElementsPage.selectDropdown(SupportOptions.YELLOW);
+        differentElementsPage.selectColor(YELLOW);
 
         //16 Assert that for dropdown there is a log row and value is corresponded to the selected value.
-        differentElementsPage.areDropdownLogsCorrect(SupportOptions.YELLOW);
+        differentElementsPage.dropdownLogsCheck(YELLOW);
 
         //17 Unselect and assert checkboxes
-        differentElementsPage.selectCheckboxes(SupportOptions.WATER, SupportOptions.WIND);
+        differentElementsPage.selectElements(WATER, WIND);
 
         //18 Assert that for each checkbox there is an individual log row and value is
         // corresponded to the status of checkbox. 
-        differentElementsPage.areCheckboxLogsCorrect("false", SupportOptions.WATER, SupportOptions.WIND);
+        differentElementsPage.checkboxLogsCheck("false", WATER, WIND);
     }
 }

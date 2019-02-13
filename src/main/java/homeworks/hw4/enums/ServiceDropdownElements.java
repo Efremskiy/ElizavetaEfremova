@@ -1,8 +1,5 @@
 package homeworks.hw4.enums;
 
-// TODO Oh my, what is the reason of this naming ???
-// TODO This items should be named with relation to it purpose...
-//fixed
 public enum ServiceDropdownElements {
     SUPPORT("Support"),
     DATES("Dates"),

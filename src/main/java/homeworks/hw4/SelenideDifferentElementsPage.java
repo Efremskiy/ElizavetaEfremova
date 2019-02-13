@@ -1,13 +1,14 @@
 package homeworks.hw4;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import homeworks.hw4.enums.Logs;
 import homeworks.hw4.enums.SupportOptions;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Condition.*;
-import static org.testng.Assert.assertEquals;
+import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static org.testng.Assert.assertTrue;
 
 public class SelenideDifferentElementsPage {
@@ -19,7 +20,7 @@ public class SelenideDifferentElementsPage {
     private ElementsCollection radios;
 
     @FindBy(css = ".main-content .uui-form-element")
-    private ElementsCollection dropdowns;
+    private SelenideElement dropdown;
 
     @FindBy(css = ".main-content .uui-button")
     private ElementsCollection buttons;
@@ -30,14 +31,14 @@ public class SelenideDifferentElementsPage {
     @FindBy(css = ".sidebar-menu")
     private SelenideElement leftSection;
 
-    @FindBy(css = ".panel-body-list.logs > li")
+    @FindBy(css = ".logs > li")
     private ElementsCollection logs;
 
     public void mainInterfaceCheck() {
-        assertEquals(checkboxes.size(), 4);
-        assertEquals(radios.size(), 4);
-        assertEquals(dropdowns.size(), 1);
-        assertEquals(buttons.size(), 2);
+        checkboxes.shouldHave(size(4));
+        radios.shouldHave(size(4));
+        dropdown.shouldBe(visible);
+        buttons.shouldHave(size(2));
     }
 
     public void isRightSectionDisplayed() {
@@ -48,56 +49,44 @@ public class SelenideDifferentElementsPage {
         leftSection.shouldBe(visible);
     }
 
-    public void selectCheckboxes(SupportOptions... options) {
-        // TODO Take a look on ElementsCollection::find method
-        //fixed
+    public void selectElements(SupportOptions... options) {
         for (SupportOptions option : options) {
             checkboxes.find(text(option.toString())).click();
         }
     }
 
-    public void areCheckboxLogsCorrect(String condition, SupportOptions... options) {
-        // TODO This is not the best approach.
-        // TODO You have to verify actual log rows with expected,
-        // TODO verification should not depends on current element status.
-        //fixed
+    public void checkboxLogsCheck(String condition, SupportOptions... options) {
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
             assertTrue(logs.get(options.length - 1 - i).getText()
-                    .contains(options[i].toString() + ": condition changed to " + condition));
+                    .contains(options[i].toString() + Logs.ELEMENTS + condition));
         }
     }
 
-    public void selectRadios(SupportOptions... options) {
-        // TODO Take a look on ElementsCollection::find method
-        //fixed
+    public void selectMetal(SupportOptions... options) {
         for (SupportOptions option : options) {
             radios.find(text(option.toString())).click();
         }
     }
 
-    public void areRadioLogsCorrect(SupportOptions... options) {
-        // TODO You can easily verify that the log contains expected string. This will be quite enough
+    public void radioLogsCheck(SupportOptions... options) {
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
             assertTrue(logs.get(options.length - 1 - i).getText()
-                    .contains("metal: value changed to " + options[i].toString()));
+                    .contains(Logs.METAL + options[i].toString()));
         }
     }
 
-    public void selectDropdown(SupportOptions option) {
-        // TODO You have to create 'Utils' class in order to do this transformation
-        //fixed
-        dropdowns.get(0).click();
-        dropdowns.get(0).selectOption(option.toString());
+    public void selectColor(SupportOptions option) {
+        dropdown.click();
+        dropdown.selectOption(option.toString());
     }
 
-    public void areDropdownLogsCorrect(SupportOptions... options) {
-        // TODO You can easily verify that the log contains expected string. This will be quite enough
+    public void dropdownLogsCheck(SupportOptions... options) {
         for (int i = 0; i < options.length; i++) {
             logs.get(options.length - 1 - i).shouldBe(visible);
             assertTrue(logs.get(options.length - 1 - i).getText()
-                    .contains("Colors: value changed to " + options[i].toString()));
+                    .contains(Logs.COLOR + options[i].toString()));
         }
     }
 }
