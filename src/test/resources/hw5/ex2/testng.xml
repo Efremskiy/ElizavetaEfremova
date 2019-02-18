@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNg Suite">
+<suite name="TestNg Suite" parallel="methods" thread-count="3">
     <test name="Test 1" >
-        <classes>
-            <class name="homeworks.hw2.ex3.MainContentTest" />
-        </classes>
+        <packages>
+            <package name="homeworks.hw5.ex2"/>
+        </packages>
     </test>
 </suite>
