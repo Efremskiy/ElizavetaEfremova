@@ -1,17 +1,23 @@
 package homeworks.hw5.ex1;
 
 import base.SelenideBase;
+import homeworks.hw5.AllureListener;
 import homeworks.hw5.SelenideDatesPage;
 import homeworks.hw5.SelenideIndexPage;
 import homeworks.hw5.enums.PageMainData;
 import homeworks.hw5.enums.ServiceDropdownElements;
 import homeworks.hw5.enums.Users;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
+@Listeners(AllureListener.class)
+@Feature("\"Dates\" page test")
 public class DatesPageSlidersTest extends SelenideBase {
     private SelenideIndexPage indexPage;
     private SelenideDatesPage datesPage;
@@ -29,6 +35,7 @@ public class DatesPageSlidersTest extends SelenideBase {
         close();
     }
 
+    @Story("Test main functionality and sliders")
     @Test
     public void datesPageSlidersTest() {
         //2 Assert Browser title
@@ -48,7 +55,7 @@ public class DatesPageSlidersTest extends SelenideBase {
         datesPage.moveSliderTo(0, 100);
 
         //7 Assert that for "From" and "To" sliders there are logs rows with corresponding values
-        datesPage.areLogsCorrect(0, 100);
+        datesPage.areLogsCorrect(0, 60);
 
         //8 Using drag-and-drop set Range sliders. left sliders - the most left position,
         // right slider - the most left position.

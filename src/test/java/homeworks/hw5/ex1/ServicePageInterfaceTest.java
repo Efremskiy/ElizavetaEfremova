@@ -1,18 +1,24 @@
 package homeworks.hw5.ex1;
 
 import base.SelenideBase;
+import homeworks.hw5.AllureListener;
 import homeworks.hw5.SelenideDifferentElementsPage;
 import homeworks.hw5.SelenideIndexPage;
 import homeworks.hw5.enums.PageMainData;
 import homeworks.hw5.enums.ServiceDropdownElements;
 import homeworks.hw5.enums.Users;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 import static homeworks.hw5.enums.SupportOptions.*;
 
+@Listeners(AllureListener.class)
+@Feature("\"Different Elements\" page test")
 public class ServicePageInterfaceTest extends SelenideBase {
 
     private SelenideIndexPage indexPage;
@@ -31,6 +37,7 @@ public class ServicePageInterfaceTest extends SelenideBase {
         close();
     }
 
+    @Story("Test \"Home Page\" Service menus and \"Different Elements\" page main interface")
     @Test
     public void servicePageInterfaceTest() {
         //2 Assert Browser title

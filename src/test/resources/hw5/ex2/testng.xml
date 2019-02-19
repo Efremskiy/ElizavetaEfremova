@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TestNg Suite" parallel="methods" thread-count="3">
-    <test name="Test 1" >
+    <test name="Dates and Different Elements" >
         <packages>
             <package name="homeworks.hw5.ex2"/>
         </packages>
