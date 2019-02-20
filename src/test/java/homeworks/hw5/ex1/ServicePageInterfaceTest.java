@@ -44,10 +44,10 @@ public class ServicePageInterfaceTest extends SelenideBase {
         indexPage.titleCheck(PageMainData.PAGE_TITLE.toString());
 
         //3 Perform login
-        indexPage.login(Users.PETER_CHAILOVSKII);
+        indexPage.login(Users.PITER_CHAILOVSKII);
 
         //4 Assert User name in the left-top side of screen that user is loggined
-        indexPage.isLogged(Users.PETER_CHAILOVSKII);
+        indexPage.isLogged(Users.PITER_CHAILOVSKII);
 
         //5 Click on "Service" subcategory in the header and check that drop down contains options
         indexPage.headerDropdownCheck(ServiceDropdownElements.values());
