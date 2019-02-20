@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class NavigationSteps {
     @Given("^I am on 'Home Page'$")
-    public void iAmOnHomePage() {
+    public void openSite() {
         open(PageMainData.URL.toString());
     }
 }

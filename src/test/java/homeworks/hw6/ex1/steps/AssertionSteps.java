@@ -33,7 +33,7 @@ public class AssertionSteps {
     }
 
     @Then("^Header dropdown contains options:$")
-    public void dropdownContainsOptions(List<ServiceDropdownElements> elements) {
+    public void headerDropdownContainsOptions(List<ServiceDropdownElements> elements) {
         indexPage.headerDropdownCheck(elements);
     }
 
@@ -68,7 +68,7 @@ public class AssertionSteps {
     }
 
     @Then("^Log is correct for color '([^\"]*)'$")
-    public void logIsCorrectForColorYELLOW(SupportOptions color) {
+    public void logIsCorrectForColor(SupportOptions color) {
         elementsPage.dropdownLogsCheck(color);
     }
 }

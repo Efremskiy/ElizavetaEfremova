@@ -1,4 +1,4 @@
-package homeworks.hw6.ex1;
+package homeworks.hw6.ex2;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
@@ -7,11 +7,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.BeforeSuite;
 
 @CucumberOptions(
-        features = "classpath:homeworks.hw6.ex1",
-        glue = "classpath:homeworks.hw6.ex1.steps"
+        features = "src/test/resources/hw6/ex2",
+        glue = "src/test/java/homeworks/hw6/ex2/steps"
 )
 
-public class Run extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
     @BeforeSuite()
     public void driverSetUp() {
         Configuration.browser = Browsers.CHROME;

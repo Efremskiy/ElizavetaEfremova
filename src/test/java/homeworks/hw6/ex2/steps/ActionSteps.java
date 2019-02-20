@@ -21,22 +21,22 @@ public class ActionSteps {
     }
 
     @When("^I click on '([^\"]*)' button in Header$")
-    public void iClickOnServiceButtonInHeader(HeaderItemsData headerItem) {
+    public void clickOnServiceButtonInHeader(HeaderItemsData headerItem) {
         indexPage.headerNavigation(headerItem);
     }
 
     @And("^I click on '([^\"]*)' button in Service dropdown$")
-    public void iClickOnUserTableButtonInServiceDropdown(ServiceDropdownElements element) {
+    public void clickOnUserTableButtonInServiceDropdown(ServiceDropdownElements element) {
         indexPage.openServicePage(element);
     }
 
     @When("^I select 'vip' checkbox for \'([^\"]*)\'$")
-    public void iSelectVipCheckboxFor(UserTableUsers user) {
+    public void selectCheckboxFor(UserTableUsers user) {
         userTablePage.selectVip(user);
     }
 
     @When("^I click on dropdown in column \"NumberType\" for user \'([^\"]*)\'$")
-    public void iClickOnDropdownInColumnNumberTypeForUserRoman(UserTableUsers user) {
+    public void clickOnDropdown(UserTableUsers user) {
         userTablePage.numberTypeSelect(user);
     }
 }
