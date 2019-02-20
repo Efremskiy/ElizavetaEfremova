@@ -1,6 +1,6 @@
-Feature: Test
+Feature: User Table Page Test
 
-  Scenario: User Table Page test
+  Scenario: Main Interface Test
     Given I am on 'Home Page'
     And I login as user 'Piter_Chailovskii'
     When I click on 'Service' button in Header

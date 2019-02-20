@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TestNg Suite">
-    <test name="Gherkin Different Elements page and User Table page test" >
+    <test name="Gherkin Different Elements page and User Table page test" parallel="classes" thread-count="1">
         <classes>
             <class name="homeworks.hw6.ex1.TestRunner"/>
             <class name="homeworks.hw6.ex2.TestRunner"/>
