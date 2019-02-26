@@ -7,9 +7,8 @@ Feature: Different Elements Page Test
 
     When I login as user 'Piter_Chailovskii'
     Then User name should be 'Piter_Chailovskii'
-
-    When I click on 'Service' subcategory in the header
-    Then Header dropdown contains options:
+    When I click on "Service" subcategory in the left section
+    Then Left dropdown contains options:
       | SUPPORT            |
       | DATES              |
       | COMPLEX_TABLE      |
@@ -19,8 +18,8 @@ Feature: Different Elements Page Test
       | DIFFERENT_ELEMENTS |
       | PERFORMANCE        |
 
-    When I click on "Service" subcategory in the left section
-    Then Left dropdown contains options:
+    When I click on 'Service' subcategory in the header
+    Then Header dropdown contains options:
       | SUPPORT            |
       | DATES              |
       | COMPLEX_TABLE      |

@@ -2,7 +2,8 @@ package homeworks.hw6.enums;
 
 public enum PageMainData {
     URL("https://epam.github.io/JDI/"),
-    PAGE_TITLE("Home Page");
+    PAGE_TITLE("Home Page"),
+    USER_TABLE("User Table");
 
     private String text;
 

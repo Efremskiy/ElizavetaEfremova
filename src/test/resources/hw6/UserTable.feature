@@ -1,11 +1,11 @@
 Feature: User Table Page Test
 
   Scenario: Main Interface Test
-    Given I am on 'Home Page'
+    Given I open EPAM JDI site
     And I login as user 'Piter_Chailovskii'
-    When I click on 'Service' button in Header
-    And I click on 'User_Table' button in Service dropdown
-    Then 'User_Table' page is opened
+    When I click on 'Service' subcategory in the header
+    And I click on 'User_Table' in the header "Service" menu
+    Then Browser title should be 'User_Table'
     And 6 NumberType Dropdowns are displayed on Users Table on User Table Page
     And 6 User names are displayed on Users Table on User Table Page
     And 6 Description images are displayed on Users Table on User Table Page

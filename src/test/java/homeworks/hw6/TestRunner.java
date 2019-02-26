@@ -1,4 +1,4 @@
-package homeworks.hw6.ex1;
+package homeworks.hw6;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
@@ -9,8 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 @CucumberOptions(
-        features = "src/test/resources/hw6/ex1",
-        glue = "homeworks.hw6.ex1.steps"
+        features = "src/test/resources/hw6",
+        glue = "homeworks.hw6.steps"
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

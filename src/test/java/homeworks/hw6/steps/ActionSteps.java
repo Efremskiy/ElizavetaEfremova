@@ -1,12 +1,10 @@
-package homeworks.hw6.ex1.steps;
+package homeworks.hw6.steps;
 
 import cucumber.api.java.en.When;
 import homeworks.hw6.GherkinDifferentElementsPage;
 import homeworks.hw6.GherkinIndexPage;
-import homeworks.hw6.enums.HeaderItemsData;
-import homeworks.hw6.enums.ServiceDropdownElements;
-import homeworks.hw6.enums.SupportOptions;
-import homeworks.hw6.enums.Users;
+import homeworks.hw6.GherkinUserTablePage;
+import homeworks.hw6.enums.*;
 
 import java.util.List;
 
@@ -15,6 +13,7 @@ import static com.codeborne.selenide.Selenide.page;
 public class ActionSteps {
     private GherkinIndexPage indexPage = page(GherkinIndexPage.class);
     private GherkinDifferentElementsPage elementsPage = page(GherkinDifferentElementsPage.class);
+    private GherkinUserTablePage userTablePage = page(GherkinUserTablePage.class);
 
     @When("^I login as user '([^\"]*)'$")
     public void loginAsUser(Users user) {
@@ -33,7 +32,6 @@ public class ActionSteps {
 
     @When("^I click on '([^\"]*)' in the header \"Service\" menu$")
     public void openServiceSubpage(ServiceDropdownElements pageName) {
-        indexPage.headerNavigation(HeaderItemsData.SERVICE);
         indexPage.openServicePage(pageName);
     }
 
@@ -50,5 +48,15 @@ public class ActionSteps {
     @When("^I select color '([^\"]*)'$")
     public void selectColor(SupportOptions color) {
         elementsPage.selectColor(color);
+    }
+
+    @When("^I select 'vip' checkbox for \'([^\"]*)\'$")
+    public void selectCheckboxFor(UserTableUsers user) {
+        userTablePage.selectVip(user);
+    }
+
+    @When("^I click on dropdown in column \"NumberType\" for user \'([^\"]*)\'$")
+    public void clickOnDropdown(UserTableUsers user) {
+        userTablePage.numberTypeSelect(user);
     }
 }

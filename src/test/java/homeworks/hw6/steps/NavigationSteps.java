@@ -1,4 +1,4 @@
-package homeworks.hw6.ex1.steps;
+package homeworks.hw6.steps;
 
 import cucumber.api.java.en.Given;
 import homeworks.hw6.enums.PageMainData;
