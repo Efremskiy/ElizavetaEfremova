@@ -55,6 +55,12 @@
             <version>1.2.5</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.epam.jdi</groupId>
+            <artifactId>jdi-light-html</artifactId>
+            <version>LATEST</version>
+        </dependency>
     </dependencies>
 
     <build>

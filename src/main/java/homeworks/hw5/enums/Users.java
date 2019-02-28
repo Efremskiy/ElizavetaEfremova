@@ -12,4 +12,8 @@ public enum Users {
         this.password = password;
         this.fullName = fullName;
     }
+    @Override
+    public String toString() {
+        return fullName;
+    }
 }
