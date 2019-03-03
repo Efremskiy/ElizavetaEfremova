@@ -3,13 +3,10 @@ package homeworks.hw7.pages;
 import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.ui.html.common.Text;
 import homeworks.hw7.entities.Logs;
 import homeworks.hw7.entities.MetalsAndColorsData;
 import homeworks.hw7.forms.MetalsAndColorsForm;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
