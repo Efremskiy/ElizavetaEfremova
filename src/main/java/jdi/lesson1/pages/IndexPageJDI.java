@@ -1,6 +1,5 @@
-package base.jdi.lesson1.pages;
+package jdi.lesson1.pages;
 
-import com.epam.jdi.light.elements.base.UIElement;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.common.Icon;

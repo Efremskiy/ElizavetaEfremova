@@ -1,6 +1,5 @@
 package jdi.lesson1;
 
-import base.jdi.lesson1.JdiSite;
 import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
 import org.testng.annotations.AfterSuite;
