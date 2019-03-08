@@ -28,19 +28,10 @@ public class MetalsAndColorsPage extends WebPage {
     public void resultCheck() {
         assertEquals(logs.get(0).getText(), Logs.SUMMARY.toString() + MetalsAndColorsData.DATA.summary());
         assertEquals(logs.get(1).getText(), Logs.ELEMENTS.toString() +
-                dataToString(MetalsAndColorsData.DATA.elements));
+               String.join(", ", MetalsAndColorsData.DATA.elements));
         assertEquals(logs.get(2).getText(), Logs.COLOR.toString() + MetalsAndColorsData.DATA.color);
         assertEquals(logs.get(3).getText(), Logs.METAL.toString() + MetalsAndColorsData.DATA.metal);
         assertEquals(logs.get(4).getText(), Logs.VEGETABLES.toString() +
-                dataToString(MetalsAndColorsData.DATA.vegetables));
-
-    }
-
-    private String dataToString(String[] data) {
-        String result = data[0];
-        for (int i = 1; i < data.length; i++) {
-            result += ", " + data[i];
-        }
-        return result;
+                String.join(", ", MetalsAndColorsData.DATA.vegetables));
     }
 }
